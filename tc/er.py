@@ -9,23 +9,24 @@ def er2afn_base(expreg):
     Sigma = {}
     Delta = {}
     FSet = {}
-    if expreg in {'0', '1'}:
-        QSet = {'q1', 'q2'}
-        FSet = {'q2'}
-        Sigma = {'0', '1'}
-        Delta = {
-            ('q1', expreg): 'q2'
-        }
-    elif expreg = '':
+    
+    if expreg = '':
         QSet = {'q1'}
         FSet = {'q1'}
-        Sigma = {'0', '1'}
+        Sigma = {}
         Delta = {}
     elif not expreg:
         QSet = {'q1'}
         FSet = {}
-        Sigma = {'0', '1'}
+        Sigma = {}
         Delta = {}
+    else:
+        QSet = {'q1', 'q2'}
+        FSet = {'q2'}
+        Sigma = {expreg}
+        Delta = {
+            ('q1', expreg): 'q2'
+        }
 
     automato = (QSet, Sigma, Delta, 'q1', FSet)
 
